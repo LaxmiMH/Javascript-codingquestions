@@ -26,7 +26,18 @@
 //     },
 //   })
 // );
+let obj = {};
+function flat(arr) {
+  for (let i in arr) {
+    if (typeof arr[i] === "object") {
+      flat(arr[i]);
+    } else {
+      obj[i] = arr[i];
+    }
+  }
 
+  return obj;
+}
 // currying
 function findSum1(x) {
   const innerFunction = function (y) {

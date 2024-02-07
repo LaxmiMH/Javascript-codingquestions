@@ -28,3 +28,15 @@ console.log(flatArray(arr));
 //   }, []);
 // }
 // console.log(flatArray(arr));
+let obj = {};
+function flat(arr) {
+  for (let i in arr) {
+    if (typeof arr[i] === "object") {
+      flat(arr[i]);
+    } else {
+      obj[i] = arr[i];
+    }
+  }
+
+  return obj;
+}
